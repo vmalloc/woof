@@ -6,7 +6,7 @@ install:
 - pip install -e .
 - pip install pylint
 script:
-- pylint ./woof
+- pylint --rcfile=.pylintrc ./woof
 deploy:
   provider: pypi
   user: vmalloc
