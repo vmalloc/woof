@@ -3,10 +3,10 @@ sudo: false
 python:
 - '3.6'
 install:
-- pip install -e .
-- pip install pylint
+- pip install -e .[testing]
 script:
-- pylint --rcfile=.pylintrc ./woof
+- pylint --rcfile=.pylintrc ./woof ./tests
+- pytest tests
 deploy:
   provider: pypi
   user: vmalloc
