@@ -6,7 +6,7 @@ BACKENDS = []
 
 class _BackendMeta(type):
 
-    def __new__(*args, **kwargs):
+    def __new__(*args, **kwargs): # pylint: disable=no-method-argument
         cls = type.__new__(*args, **kwargs)
         BACKENDS.append(cls)
         return cls
@@ -22,7 +22,7 @@ class Backend(metaclass=_BackendMeta):
 
     @classmethod
     def try_configure(cls):
-        arg_names = inspect.getargspec(cls.__init__).args[1:]
+        arg_names = inspect.getargspec(cls.__init__).args[1:] # pylint: disable=deprecated-method
         backend_name = cls.__name__.lower().split('backend')[0]
 
         kwargs = {}
