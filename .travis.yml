@@ -1,0 +1,18 @@
+language: python
+sudo: false
+python:
+- '3.6'
+install:
+- pip install -e .[testing]
+script:
+- pylint --rcfile=.pylintrc ./woof ./tests
+- pytest tests
+deploy:
+  provider: pypi
+  user: vmalloc
+  password:
+    secure: I01Lp+juuqzUomxFCM1VHXb11NJ1Vovt/2KSFSMlNCnomaBsda4hK+9pa/0lXXg/N1b5/8Y8vhjfPa/8GbbVYAsBT9czK31N0WlHg8OabQjAepNf/vBG/yocFjPHakmkETL5b2S7sRTEqb6tAJ3qpZ/tmq9Nb8HANH/Ae5ZBQN1esdQqfd9ZPsC1KZYMWI3aKWnhJxPNMEiaBxj0pM8rhAajXPW14RJhpje270KlUYM3EIQzoel3jjBkcozIbX1JkaoLMJgVFgWHVmZM1kh+MTaN0p0Ygr6nx81DiRuDDZiqjHQMl2HbYgh+BkymS4CNOs47mzy30U6cNp5pCe2PF/Zr8CphVAxXXjdm/mWoKHq1TjB3m2mJfT3vuoxZk/uLNtHtQitZizuIK3bb6F9FAPOYVoLCTcI6YxvbnoNJ+lOOgepaL2Jy/q49NLv134TVq/j9rZHqxEVxmLHafOFwzo99eMEKGEQ8wGn5e+u1UPGNzwNkYt4GJSCxhi5zy2cOf7ULg77JNudbEq2u2A+U75In5Nme3LLG5HywgV+DAoyrihIqJB4Lg7ImABhx7nCq85CDLGGLf/W3+xr5Lpvghvcb3WdoREqfpddIDjAEM2gMT/OXObRajcpdV7T7KuzWY8BqFj1X/8oM3n9/29gDQjfoGOkokWxGjVYk+ytB//A=
+  on:
+    tags: true
+    distributions: sdist bdist_wheel
+    repo: vmalloc/woof
