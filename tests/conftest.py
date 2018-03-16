@@ -18,7 +18,7 @@ def custom_backend_class(request):
             self.messages.append({'param1': self.param1, 'param2': self.param2, 'message': message})
 
     @request.addfinalizer
-    def cleanup():
+    def cleanup(): # pylint: disable=unused-variable
         woof.backends.base.BACKENDS.remove(CustomBackend)
 
     return CustomBackend
@@ -30,7 +30,7 @@ def environ_set(request):
         prev = os.environ.get(key)
         os.environ[key] = value
         @request.addfinalizer
-        def cleanup():
+        def cleanup(): # pylint: disable=unused-variable
             if prev is None:
                 os.environ.pop(key, None)
             else:
