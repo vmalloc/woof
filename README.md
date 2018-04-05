@@ -33,6 +33,14 @@ $ WOOF_TELEGRAM_APIKEY=xx-xxx-xxx-xxxxx WOOF_TELEGRAM_CHAT_ID=1234 ./script.py
 
 The above will make woof send the message through the Telegram backend!
 
+### Command-line Usage
+
+Woof can also be used via command-line. With the proper environment variables set, just invokle it with
+your desired message:
+
+```
+$ woof hello there
+```
 
 ## License
 
