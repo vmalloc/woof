@@ -13,7 +13,7 @@ demonstrate zero-environment configuration):
 
 ```python
 #! /usr/bin/env fades
-from woof import notify
+from woof import notify # fades
 import shutil
 
 if __name__ == "__main__":
